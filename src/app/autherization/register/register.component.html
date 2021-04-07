@@ -1,0 +1,57 @@
+<mat-card>
+  Register Form
+</mat-card>
+<br>
+
+<div style="text-align: center;">
+  {{message}}
+</div>
+<br>
+
+<div class="register-form">
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <mat-form-field>
+    <input type="text" matInput placeholder="Username" formControlName='username' required>
+    <mat-error >
+      Please provide Username
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Email" formControlName='email' required>
+    <mat-error >
+      Please provide Email
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="">
+    <mat-label>Select Roles</mat-label>
+    <mat-select formControlName="role" required>
+      <mat-option>None</mat-option>
+      <mat-option value="Info Desk">Info Desk</mat-option>
+      <mat-option value="Account Manager">Account Manager</mat-option>
+      <mat-option value="Super admin">Super admin</mat-option>      
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="password" matInput placeholder="Password" formControlName='password' required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="password" matInput placeholder="Verify Password" formControlName='verifyPassword' [errorStateMatcher]="errorMatcher" >
+    <mat-error *ngIf="registerForm.hasError('passwordsDoNotMatch')">
+      Passwords do not match!
+    </mat-error>
+  </mat-form-field>
+
+  <div class="state">
+    Do passwords match? 
+    <strong>{{!registerForm.hasError('passwordsDoNotMatch')}}</strong>
+  </div>
+  <div class="mt-4">
+    <button mat-raised-button color="primary" type="submit" [disabled]='this.registerForm.invalid'>Register</button>&nbsp;&nbsp;
+    <button mat-raised-button color="accent" type="button" (click)='clear()'>Clear</button>
+  </div>
+</form>
+</div>

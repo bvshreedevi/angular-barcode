@@ -1,0 +1,11 @@
+.redeem-search{
+    padding: 20px;
+    
+}
+mat-grid-tile{
+
+ background: lightblue;
+}
+mat-form-field{
+    margin-right:2%;
+}

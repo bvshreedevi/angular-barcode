@@ -1,0 +1,111 @@
+  <mat-card>
+    <mat-horizontal-stepper>
+      <mat-step label="Step 1">
+        <ng-template matStepLabel>Voucher Quantity</ng-template>
+        <br>
+        <h3>Voucher Quantity</h3>
+        <br>
+        <table class="table table-striped table-hover table-bordered table-condensed tablesorter">
+          <thead>
+            <tr>
+              <th>Vouchers</th>
+              <th>250</th>
+              <th>500</th>
+              <th>1000</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GV Received from Accounts</td>
+              <td>1500</td>
+              <td>124</td>
+              <td>1376</td>
+              
+            </tr>
+            <tr>
+              <td>GV Issued</td>
+              <td>929</td>
+              <td>125</td>
+              <td>804</td>
+              
+            </tr>
+            <tr>
+              <td>Closing Stock Details</td>
+              <td>1600</td>
+              <td>120</td>
+              <td>804</td>
+              
+            </tr>
+            <tr>
+              <td>GV Redeemed</td>
+              <td>124</td>
+              <td>1376</td>
+              <td>11</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+        <button mat-raised-button color="primary" matStepperNext type="button">Next</button>
+        </div>
+      </mat-step>
+      <mat-step label="Step 2">
+        <ng-template matStepLabel>Add Voucher Quantity</ng-template>
+        <br>
+        <h3>Add Voucher Quantity</h3>
+        <br>
+        <form [formGroup]="quantityFormGroup" (ngSubmit)="quantitySubmit()">
+          <div>
+    
+            <mat-form-field class="voucher-quantity">
+              <mat-label>Select Occasion</mat-label>
+              <mat-select formControlName="occasion" name="occasion" required>
+                <mat-option>None</mat-option>
+                <mat-option value="Happy Shopping">Happy Shopping!</mat-option>      
+              </mat-select>
+            </mat-form-field>
+            
+            <!-- <mat-form-field>
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dateOfQuantity">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> -->
+          </div>
+          <div>
+          <mat-form-field class="voucher-quantity">
+            <mat-label>250</mat-label>
+            <input matInput placeholder="250" formControlName="new250" name="new250">
+          </mat-form-field>
+    
+          <mat-form-field class="voucher-quantity">
+            <mat-label>500</mat-label>
+            <input matInput placeholder="500" formControlName="new500" name="new500">
+          </mat-form-field>
+    
+          <mat-form-field class="voucher-quantity">
+            <mat-label>1000</mat-label>
+            <input matInput placeholder="1000" formControlName="new1000" name="new1000">
+          </mat-form-field>
+        </div>
+         
+        
+        <div>
+          <button mat-raised-button color="accent" matStepperPrevious type="button">Back</button>
+          <button mat-raised-button color="primary" [disabled]='quantityFormGroup.invalid' matStepperNext>Submit</button>
+        </div>
+      </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-raised-button color="accent" matStepperPrevious type="button">Back</button>
+          <button mat-raised-button color="primary" >Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card>
+
+ 
+  
+  

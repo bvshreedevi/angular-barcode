@@ -1,0 +1,110 @@
+<p> {{ registrationForm.value | json}} </p>
+<mat-card>
+  <form id="regForm" [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <mat-horizontal-stepper #stepper >
+      <mat-step formGroupName="customerDetails" 
+        [stepControl]="registrationForm.get('customerDetails')">
+        <ng-template matStepLabel>Customer Details</ng-template>
+        <mat-form-field class="voucher-form">
+          <mat-label>Customer name</mat-label>
+          <input matInput formControlName="customer_name" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Alias name</mat-label>
+          <input matInput formControlName="alias_name" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required>
+          <mat-error>This field is required or invalid</mat-error>          
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </mat-step>
+      <mat-step formGroupName="vouterDetails"
+      [stepControl]="registrationForm.get('vouterDetails')">
+        <ng-template matStepLabel>Voucher Details</ng-template>
+        <div>
+          <mat-form-field class="voucher-form">
+            <mat-label>Denomination</mat-label>
+            <input matInput readonly value='250' >    
+          </mat-form-field>
+          <mat-form-field class="voucher-form">
+            <mat-label>Avalable Quantity</mat-label>
+            <input matInput formControlName="av_quantity250" readonly>    
+          </mat-form-field>
+          <mat-form-field class="voucher-form">
+            <mat-label>Quantity</mat-label>
+            <input matInput #quantity250 formControlName="quantity250" >    
+          </mat-form-field>
+          <mat-form-field class="voucher-form">
+            <mat-label>Total</mat-label>
+            <input matInput #two_fifty_total formControlName="two_fifty_total"  readonly>    
+          </mat-form-field>
+          </div>
+  
+          <div>
+            <mat-form-field class="voucher-form">
+              <mat-label>Denomination</mat-label>
+              <input matInput readonly value='500' >    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Avalable Quantity</mat-label>
+              <input matInput readonly formControlName="av_quantity500">    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Quantity</mat-label>
+              <input matInput #quantity500 formControlName="quantity500">    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Total</mat-label>
+              <input matInput #five_hundred_total formControlName="five_hundred_total" readonly>    
+            </mat-form-field>
+            </div>
+  
+            <div>
+            <mat-form-field class="voucher-form">
+              <mat-label>Denomination</mat-label>
+              <input matInput readonly value='1000' >    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Avalable Quantity</mat-label>
+              <input matInput readonly formControlName="av_quantity1000">    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Quantity</mat-label>
+              <input matInput #quantity1000 formControlName="quantity1000">    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Total</mat-label>
+              <input matInput #thousand_total formControlName="thousand_total" value="{{1000*quantity1000.value}}" readonly>    
+            </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="voucher-form">
+                <mat-label>Grand Total</mat-label>
+                <input matInput formControlName="grand_total"  readonly>    
+              </mat-form-field>
+            </div>
+       
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Confirm Details</ng-template>
+        <ul *ngFor='let bar of barcodes250'>
+
+          <li>{{bar}}</li>
+           <li><ngx-barcode [bc-value]="bar" [bc-display-value]="true"></ngx-barcode></li>
+         </ul>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</mat-card>

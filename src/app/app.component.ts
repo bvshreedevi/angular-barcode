@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AutherizationService } from './services/autherization.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mantri3';
+  constructor(private authService:AutherizationService){}
+  
 }

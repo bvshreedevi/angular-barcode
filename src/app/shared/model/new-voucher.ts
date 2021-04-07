@@ -1,0 +1,30 @@
+export class NewVoucher {
+    id: number;
+    customer_name:string;
+    alias_name:string;
+    email:string;
+    phone:string;
+    website:string;
+    event:string;
+    city:string;
+    state:string;
+    country:string;
+    pincode:number;
+    contact_person:string;
+    designation:string;
+    mobile:number;
+    pan:string;
+    tin:string;
+    twofiftydenom:number;
+    fivehunddenom:number;
+    thousanddenom:number;
+    two_fifty:number;
+    five_hundred:number;
+    thousand:number;
+    two_fifty_total:number;
+    five_hundred_total:number;
+    thousand_total:number;
+    grand_total:number;
+    expiry_date:string;
+    occasion:string;
+   }

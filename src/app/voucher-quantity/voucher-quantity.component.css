@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+  }
+  mat-grid-tile {
+    background: lightblue;
+  }
+  mat-raised-button{
+    margin-top: 20px;
+    margin-right:10px;
+  }
+  .mat-raised-button{
+    margin-top: 20px;
+    margin-right:10px;
+  }
+.voucher-quantity{
+  margin-right:1%;
+}

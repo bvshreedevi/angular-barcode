@@ -1,0 +1,326 @@
+
+<mat-horizontal-stepper #stepper>
+  <mat-step [stepControl]="vocherForm">
+    <form [formGroup]="vocherForm" (ngSubmit)='onSubmit()'>
+      <ng-template matStepLabel>Details</ng-template>
+      <h4>Customer Details</h4>
+        <mat-form-field class="voucher-form">
+          <mat-label>Customer name</mat-label>
+          <input matInput formControlName="customer_name" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Alias name</mat-label>
+          <input matInput formControlName="alias_name" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required>
+          <mat-error>This field is required or invalid</mat-error>          
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Office Number</mat-label>
+          <input matInput formControlName="phone">    
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Website</mat-label>
+          <input matInput formControlName="website">    
+        </mat-form-field>
+        <div>
+          <mat-form-field class="voucher-form">
+            <mat-label>Contact Person</mat-label>
+            <input matInput formControlName="contact_person" required>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="voucher-form">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput formControlName="mobile" required>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="voucher-form">
+            <mat-label>Designation</mat-label>
+            <input matInput formControlName="designation" >            
+          </mat-form-field>
+          <mat-form-field class="voucher-form">
+            <mat-label>Pan</mat-label>
+            <input matInput formControlName="pan">
+            
+          </mat-form-field>
+  
+          <mat-form-field class="voucher-form">
+            <mat-label>Tan</mat-label>
+            <input matInput formControlName="tan1" >
+           
+          </mat-form-field>
+
+        </div> 
+
+        <h6>Address</h6>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Plot No/ Street</mat-label>
+          <input matInput formControlName="street" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>State</mat-label>
+          <input matInput formControlName="state" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Country</mat-label>
+          <input matInput formControlName="country" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Pin Code</mat-label>
+          <input matInput formControlName="pincode" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+        
+        <h4>Voucher</h4>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Select Occasion</mat-label>
+          <mat-select  formControlName="occasion" required>
+            <mat-option>None</mat-option>
+            <mat-option value="Happy Shopping">Happy Shopping!</mat-option>      
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="voucher-form">
+          <mat-label>Expiry Date</mat-label>
+          <mat-select formControlName="expiry_date" required>
+            <mat-option>None</mat-option>
+            <mat-option value="30days">30 Days</mat-option> 
+            <mat-option value="1year">1 Year</mat-option>      
+          </mat-select>
+        </mat-form-field>
+
+        <div>
+          <mat-form-field class="voucher-form">
+            <mat-label>Denomination</mat-label>
+            <input matInput readonly value='250' >    
+          </mat-form-field>
+          <mat-form-field class="voucher-form">
+            <mat-label>Avalable Quantity</mat-label>
+            <input matInput formControlName="av_quantity250">    
+          </mat-form-field>
+          <mat-form-field class="voucher-form">
+            <mat-label>Quantity</mat-label>
+            <input matInput #quantity250 formControlName="quantity250" >    
+          </mat-form-field>
+          <mat-form-field class="voucher-form">
+            <mat-label>Total</mat-label>
+            <input matInput #two_fifty_total formControlName="two_fifty_total"  readonly>    
+          </mat-form-field>
+          </div>
+  
+          <div>
+            <mat-form-field class="voucher-form">
+              <mat-label>Denomination</mat-label>
+              <input matInput readonly value='500' >    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Avalable Quantity</mat-label>
+              <input matInput readonly formControlName="av_quantity500">    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Quantity</mat-label>
+              <input matInput #quantity500 formControlName="quantity500">    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Total</mat-label>
+              <input matInput #five_hundred_total formControlName="five_hundred_total" readonly>    
+            </mat-form-field>
+            </div>
+  
+            <div>
+            <mat-form-field class="voucher-form">
+              <mat-label>Denomination</mat-label>
+              <input matInput readonly value='1000' >    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Avalable Quantity</mat-label>
+              <input matInput readonly formControlName="av_quantity1000">    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Quantity</mat-label>
+              <input matInput #quantity1000 formControlName="quantity1000">    
+            </mat-form-field>
+            <mat-form-field class="voucher-form">
+              <mat-label>Total</mat-label>
+              <input matInput #thousand_total formControlName="thousand_total" readonly>    
+            </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="voucher-form">
+                <mat-label>Grand Total</mat-label>
+                <input matInput formControlName="grand_total"  readonly>    
+              </mat-form-field>
+            </div>
+          
+      <div>
+        <button mat-raised-button color="primary" [disabled]='vocherForm.invalid' matStepperNext type="submit">submit</button>
+        <button mat-raised-button color="accent" (click)="stepper.reset()">Reset</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="">
+    <ng-template matStepLabel>Confirmed</ng-template>
+    <h4>Confirmed Details</h4>
+    <table class="table table-striped">
+      <tbody>
+        <tr *ngFor='let result of results'>
+          <td>Customer Name</td>
+          <td>{{result.customer_name}}</td>
+          <td>alias_name</td>
+          <td>{{result.alias_name}}</td>
+          <td>email</td>
+          <td>{{result.email}}</td>
+        </tr>
+        <tr *ngFor='let result of results'>          
+          <td>phone</td>
+          <td>{{result.phone}}</td>
+          <td>website</td>
+          <td>{{result.website}}</td>
+          <td>street</td>
+          <td>{{result.street}}</td>
+        </tr>
+        <tr *ngFor='let result of results'>
+          <td>city</td>
+          <td>{{result.city}}</td>
+          <td>state</td>
+          <td>{{result.state}}</td>
+          <td>city</td>
+          <td>{{result.city}}</td>
+        </tr>
+        <tr *ngFor='let result of results'>
+          <td>state</td>
+          <td>{{result.state}}</td>
+          <td>country</td>
+          <td>{{result.country}}</td>
+          <td>pincode</td>
+          <td>{{result.pincode}}</td>
+        </tr>
+        <tr *ngFor='let result of results'>
+          <td>contact_person</td>
+          <td>{{result.contact_person}}</td>
+          <td>mobile</td>
+          <td>{{result.mobile}}</td>
+          <td>designation</td>
+          <td>{{result.designation}}</td>
+        </tr>
+        <tr *ngFor='let result of results'>
+          <td colspan="2">pan</td>
+          <td>{{result.pan}}</td>
+          <td colspan="2">tan1</td>
+          <td>{{result.tan1}}</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    <h6>Voucher Details</h6>
+    <table class="table table-striped">
+      <tbody>
+        <tr *ngFor='let result of results'>
+          <td>occasion</td>
+          <td>{{result.occasion}}</td>
+          <td>expiry_date</td>
+          <td>{{result.expiry_date}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr *ngFor='let result of results'>
+          <td>av_quantity250</td>
+          <td>{{result.av_quantity250}}</td>
+          <td>quantity250</td>
+          <td>{{result.quantity250}}</td>
+          <td>two_fifty_total</td>
+          <td>{{result.two_fifty_total}}</td>
+        </tr>
+        <tr *ngFor='let result of results'>
+          <td>av_quantity500</td>
+          <td>{{result.av_quantity500}}</td>
+          <td>quantity500</td>
+          <td>{{result.quantity500}}</td>
+          <td>five_hundred_total</td>
+          <td>{{result.five_hundred_total}}</td>
+        </tr>
+        <tr *ngFor='let result of results'>
+          <td>av_quantity1000</td>
+          <td>{{result.av_quantity1000}}</td>
+          <td>quantity1000</td>
+          <td>{{result.quantity1000}}</td>
+          <td>thousand_total</td>
+          <td>{{result.thousand_total}}</td>
+        </tr>
+        <tr *ngFor='let result of results'>
+          <td colspan='3'> grand_total</td>
+          <td colspan='3'>{{result.grand_total}}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+      
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious type="button">Back</button>
+        <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
+      </div>
+    
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Print</ng-template>
+    <p>Print the Barcodes</p>
+    <div>
+      <button mat-raised-button color="accent" matStepperPrevious type="button">Back</button>
+     <!--  <button mat-button (click)="stepper.reset()">Reset</button> -->
+     <button  mat-raised-button color="primary"    
+    [useExistingCss]="true"
+    printSectionId="print-section"  
+    ngxPrint>print</button>
+    </div>
+    
+
+    <div fxLayout="column" id="print-section">
+      <div *ngFor="let bcValue of bardata" class="barcodeDisplay">
+        <div style='clear:both;'>
+        <span class='float-left bcValueleft'>{{bcValue.id}}</span>
+        <span class='float-right bcValueright'>&#8377; {{bcValue.denomination}}</span>
+      </div>    
+        <ngx-barcode
+        [bc-element-type]="img"     
+          [bc-value]="bcValue.barcode_number"      
+          [bc-display-value]="displayValue"
+          [bc-width]="width" [bc-height]="30" [bc-font-size]="15"
+          [bc-format]="format" [bc-margin-top]="5" [bc-margin-bottom]="5"     
+        ></ngx-barcode>
+        
+          <span class='float-left'>PD: {{bcValue.issued_date}}</span>
+          <span class='float-right'>ED: 08-06-2020</span>
+        
+     </div>
+    </div>
+
+    
+  </mat-step>
+</mat-horizontal-stepper>
+
+

@@ -1,0 +1,48 @@
+<p>
+  test2 works!
+</p>
+
+<div style="text-align:center">
+  <h1>Welcome to !</h1>
+</div>
+
+<div id="registration" class="conatiner col-md-12">
+  <form id="regForm" [formGroup]="registrationForm" (ngSubmit)="submitR()">
+    <mat-horizontal-stepper #stepper linear>
+      <mat-step formGroupName="personalDetails" 
+        [stepControl]="registrationForm.get('personalDetails')">
+        <ng-template matStepLabel>Enter Personal Details</ng-template>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </mat-step>
+      <mat-step formGroupName="contactDetails"
+      [stepControl]="registrationForm.get('contactDetails')">
+        <ng-template matStepLabel>Enter Contact Details</ng-template>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Confirm Details</ng-template>
+        <h1 class = "no-printme"> do not print this </h1>
+
+<div class='printme'>
+  Print this only 
+</div>
+
+<button onclick={window.print()}>Print only the above div</button>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<mat-card>
+  <br>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Shop Names</h4>
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8 example-container">
+        <table mat-table [dataSource]="listData" matSort>   
+          
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+      
+          <!-- shop_name Column -->
+          <ng-container matColumnDef="shop_name" sticky class="sticky-customer-name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Shop Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.shop_name}} </td>
+          </ng-container>
+      
+         
+      
+              <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+              Loading data...
+            </mat-footer-cell>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstlastButtons></mat-paginator>
+      </div>
+    </div>
+    <div class="col-md-6">
+      
+      <h4>Add Shop Name</h4>
+      <br>
+      <form [formGroup]="shopForm" (ngSubmit)="shopSubmit()">
+        <mat-form-field class="voucher-quantity">
+          <mat-label>Shop Name</mat-label>
+          <input matInput placeholder="Shop Name" 
+          formControlName="shopName" name="shopName" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" [disabled]='shopForm.invalid'>Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br>
+   
+</mat-card>

@@ -1,0 +1,92 @@
+<mat-card>
+  Redemption
+</mat-card>
+<div class="row redeem-search" >
+  <div class="col-md-3">
+    <h6>Redeem search</h6>
+      <form id="redeemSearch" [formGroup]="redeemSearch" (ngSubmit)="submitR()">
+        <ng-template matStepLabel>Enter Personal Details</ng-template>
+        <mat-form-field>
+          <mat-label>Barcode</mat-label>
+          <input matInput formControlName="barcode" >  
+        </mat-form-field>
+      </form>
+  </div>
+  <div class="col-md-3">
+    <!-- <h6>Scanned vouchers</h6>
+     <p>{{scannedVouchers}}</p>
+    
+    <p>{{barcodes.length}}</p>
+    <hr>
+    <h6>Total Amount: {{denom}}</h6> -->
+    
+  </div>
+  <div class="col-md-2">
+    <!-- <h6>250's: {{scanned250}}</h6>
+    <hr>
+    <h6>Total 250's: {{total250}}</h6> -->
+  </div>
+  <div class="col-md-2">
+    <!-- <h6>500's: {{this.countDenom500}}</h6>
+    <hr>
+    <h6>Total 500's: {{this.total500}}</h6> -->
+  </div>
+  <div class="col-md-2">
+   <!--  <h6>1000's: {{scanned1000}}</h6>
+    <hr>
+    <h6>Total 1000's: {{total1000}}</h6> -->
+  </div>
+</div>
+
+
+<mat-card>
+<!-- <ul *ngFor='let bar of barcodes'>
+  <li>{{bar}}</li>
+</ul> -->
+
+  
+<form [formGroup]="form" (ngSubmit)='redeem()'>
+ 
+  <mat-form-field>
+    <mat-label>Select Shop</mat-label>
+    <mat-select  formControlName="shop" required>
+      <mat-option *ngFor="let p of shops" [value]="p.shop_name">
+        {{ p.shop_name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+    <h6>Voucher List</h6>
+    <!-- <button (click)="addCreds()">Add</button> -->
+
+    <div formArrayName="vouchers" *ngFor="let creds of form.controls.vouchers?.value; let i = index">
+      <ng-container [formGroupName]="i">
+        <mat-form-field>
+          <mat-label>Voucher Id</mat-label>
+          <input matInput formControlName="id"  readonly>  
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Customer Name</mat-label>
+          <input matInput formControlName="customer_name"  >  
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Barcode Number</mat-label>
+          <input matInput formControlName="barcode_number"  >  
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Denomination</mat-label>
+          <input matInput formControlName="denomination"  >  
+        </mat-form-field>
+        
+      </ng-container>
+    </div>
+    
+    <div>
+      <button type="submit" mat-raised-button color="primary" >Redeem</button>
+    </div>
+  
+</form>
+</mat-card>
+
+
+
